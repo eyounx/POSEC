@@ -1,37 +1,26 @@
-This repository implements several algorithms:
+# Overview
 
-- Trust Region Policy Optimization [1]
-- Proximal Policy Optimization (i.e., TRPO, but using a penalty instead of a constraint on KL divergence), where each subproblem is solved with either SGD or L-BFGS
-- Cross Entropy Method
+We take the Pusher task as an example, and Striker and Thrower are alternative.
+- **Step 1:Training Base Policies**<br>
+```bash
+# Generating multiple different configuration environments<br>
+python change_env_config.py pusher 
+    
+# Using TRPO[1] to generate multiple base policies
+python run_pg.py --env pusher --agent modular_rl.agentzoo.TrpoAgent  
+```
 
-TRPO and PPO are implemented with neural-network value functions and use GAE [2].
+- **Step 2:Optimizing Combination Weightss**<br>
+```bash
+# In a batch of new configuration environments, the optimal weights of base policies are obtained based on zoopt[2]
+python get_best_weight.py pusher
+```
 
+- **Step 3:Optimizing Calibration Actions**<br>
+```bash
+# In a batch of new configuration environments, the optimal calibration actions are obtained based on zoopt[2]
+python get_best_action.py pusher 
+```
 
-This library is written in a modular way to allow for sharing code between TRPO and PPO variants, and to write the same code for different kinds of action spaces.
-
-Dependencies:
-
-- keras (1.0.1)
-- theano (0.8.2)
-- tabulate
-- numpy
-- scipy
-
-
-To run the algorithms implemented here, you should put `modular_rl` on your `PYTHONPATH`, or run the scripts (e.g. `run_pg.py`) from this directory.
-
-Good parameter settings can be found in the `experiments` directory.
-
-You can learn about the various parameters by running one of the experiment scripts with the `-h` flag, but providing the (required) `env` and `agent` parameters. (Those parameters determine what other parameters are available.) For example, to see the parameters of TRPO,
-
-    ./run_pg.py --env CartPole-v0 --agent modular_rl.agentzoo.TrpoAgent -h
-
-To the the parameters of CEM,
-
-    ./run_cem.py --env=Acrobot-v0 --agent=modular_rl.agentzoo.DeterministicAgent  --n_iter=2
-
-
-[1] JS, S Levine, P Moritz, M Jordan, P Abbeel, "Trust region policy optimization." arXiv preprint arXiv:1502.05477 (2015).
-
-[2] JS, P Moritz, S Levine, M Jordan, P Abbeel, "High-dimensional continuous control using generalized advantage estimation." arXiv preprint arXiv:1506.02438 (2015).
-
+[1] Schulman J, Levine S, Abbeel P, et al. **Trust region policy optimization**. In: *Proceedings of the 32nd International Conference on Machine Learning (ICML'15)*, pages 1889-1897, Lille, France, 2015.<br>
+[2] Yu-Ren Liu, Yi-Qi Hu, Hong Qian, Yang Yu, Chao Qian. **ZOOpt: Toolbox for Derivative-Free Optimization**. arXiv:1801.00329, 2017.
