@@ -1,0 +1,3155 @@
+from gym.envs.registration import registry, register, make, spec
+
+# Algorithmic
+# ----------------------------------------
+
+register(
+    id='Copy-v0',
+    entry_point='gym.envs.algorithmic:CopyEnv',
+    max_episode_steps=200,
+    reward_threshold=25.0,
+)
+
+register(
+    id='RepeatCopy-v0',
+    entry_point='gym.envs.algorithmic:RepeatCopyEnv',
+    max_episode_steps=200,
+    reward_threshold=75.0,
+)
+
+register(
+    id='ReversedAddition-v0',
+    entry_point='gym.envs.algorithmic:ReversedAdditionEnv',
+    kwargs={'rows' : 2},
+    max_episode_steps=200,
+    reward_threshold=25.0,
+)
+
+register(
+    id='ReversedAddition3-v0',
+    entry_point='gym.envs.algorithmic:ReversedAdditionEnv',
+    kwargs={'rows' : 3},
+    max_episode_steps=200,
+    reward_threshold=25.0,
+)
+
+register(
+    id='DuplicatedInput-v0',
+    entry_point='gym.envs.algorithmic:DuplicatedInputEnv',
+    max_episode_steps=200,
+    reward_threshold=9.0,
+)
+
+register(
+    id='Reverse-v0',
+    entry_point='gym.envs.algorithmic:ReverseEnv',
+    max_episode_steps=200,
+    reward_threshold=25.0,
+)
+
+# Classic
+# ----------------------------------------
+
+register(
+    id='CartPole-v0',
+    entry_point='gym.envs.classic_control:CartPoleEnv',
+    max_episode_steps=200,
+    reward_threshold=195.0,
+)
+
+register(
+    id='CartPole-v1',
+    entry_point='gym.envs.classic_control:CartPoleEnv',
+    max_episode_steps=500,
+    reward_threshold=475.0,
+)
+
+register(
+    id='MountainCar-v0',
+    entry_point='gym.envs.classic_control:MountainCarEnv',
+    max_episode_steps=200,
+    reward_threshold=-110.0,
+)
+
+register(
+    id='MountainCarContinuous-v0',
+    entry_point='gym.envs.classic_control:Continuous_MountainCarEnv',
+    max_episode_steps=999,
+    reward_threshold=90.0,
+)
+
+register(
+    id='Pendulum-v0',
+    entry_point='gym.envs.classic_control:PendulumEnv',
+    max_episode_steps=200,
+)
+
+register(
+    id='Acrobot-v1',
+    entry_point='gym.envs.classic_control:AcrobotEnv',
+    max_episode_steps=500,
+)
+
+# Box2d
+# ----------------------------------------
+
+register(
+    id='LunarLander-v2',
+    entry_point='gym.envs.box2d:LunarLander',
+    max_episode_steps=1000,
+    reward_threshold=200,
+)
+
+register(
+    id='LunarLanderContinuous-v2',
+    entry_point='gym.envs.box2d:LunarLanderContinuous',
+    max_episode_steps=1000,
+    reward_threshold=200,
+)
+
+register(
+    id='BipedalWalker-v2',
+    entry_point='gym.envs.box2d:BipedalWalker',
+    max_episode_steps=1600,
+    reward_threshold=300,
+)
+
+register(
+    id='BipedalWalkerHardcore-v2',
+    entry_point='gym.envs.box2d:BipedalWalkerHardcore',
+    max_episode_steps=2000,
+    reward_threshold=300,
+)
+
+register(
+    id='CarRacing-v0',
+    entry_point='gym.envs.box2d:CarRacing',
+    max_episode_steps=1000,
+    reward_threshold=900,
+)
+
+# Toy Text
+# ----------------------------------------
+
+register(
+    id='Blackjack-v0',
+    entry_point='gym.envs.toy_text:BlackjackEnv',
+)
+
+register(
+    id='KellyCoinflip-v0',
+    entry_point='gym.envs.toy_text:KellyCoinflipEnv',
+    reward_threshold=246.61,
+)
+register(
+    id='KellyCoinflipGeneralized-v0',
+    entry_point='gym.envs.toy_text:KellyCoinflipGeneralizedEnv',
+)
+
+register(
+    id='FrozenLake-v0',
+    entry_point='gym.envs.toy_text:FrozenLakeEnv',
+    kwargs={'map_name' : '4x4'},
+    max_episode_steps=100,
+    reward_threshold=0.78, # optimum = .8196
+)
+
+register(
+    id='FrozenLake8x8-v0',
+    entry_point='gym.envs.toy_text:FrozenLakeEnv',
+    kwargs={'map_name' : '8x8'},
+    max_episode_steps=200,
+    reward_threshold=0.99, # optimum = 1
+)
+
+register(
+    id='CliffWalking-v0',
+    entry_point='gym.envs.toy_text:CliffWalkingEnv',
+)
+
+register(
+    id='NChain-v0',
+    entry_point='gym.envs.toy_text:NChainEnv',
+    max_episode_steps=1000,
+)
+
+register(
+    id='Roulette-v0',
+    entry_point='gym.envs.toy_text:RouletteEnv',
+    max_episode_steps=100,
+)
+
+register(
+    id='Taxi-v2',
+    entry_point='gym.envs.toy_text.taxi:TaxiEnv',
+    reward_threshold=8, # optimum = 8.46
+    max_episode_steps=200,
+)
+
+register(
+    id='GuessingGame-v0',
+    entry_point='gym.envs.toy_text.guessing_game:GuessingGame',
+    max_episode_steps=200,
+)
+
+register(
+    id='HotterColder-v0',
+    entry_point='gym.envs.toy_text.hotter_colder:HotterColder',
+    max_episode_steps=200,
+)
+
+# Mujoco
+# ----------------------------------------
+
+# 2D
+
+register(
+    id='Reacher-v1',
+    entry_point='gym.envs.mujoco:ReacherEnv',
+    max_episode_steps=50,
+    reward_threshold=-3.75,
+)
+
+register(
+    id='Pusher-v0',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v1',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv1',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v2',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv2',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v3',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv3',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v4',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv4',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v5',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv5',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v6',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv6',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v7',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv7',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v8',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv8',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v9',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv9',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v10',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv10',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v11',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv11',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v12',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv12',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v13',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv13',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v14',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv14',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v15',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv15',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v16',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv16',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v17',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv17',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v18',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv18',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v19',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv19',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v20',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv20',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v21',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv21',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v22',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv22',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v23',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv23',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v24',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv24',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v25',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv25',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v26',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv26',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v27',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv27',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v28',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv28',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v29',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv29',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v30',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv30',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v31',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv31',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v32',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv32',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v33',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv33',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v34',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv34',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v35',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv35',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v36',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv36',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v37',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv37',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v38',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv38',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v39',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv39',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v40',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv40',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v41',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv41',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v42',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv42',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v43',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv43',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v44',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv44',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v45',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv45',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v46',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv46',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v47',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv47',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v48',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv48',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v49',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv49',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v50',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv50',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v51',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv51',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v52',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv52',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v53',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv53',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v54',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv54',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v55',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv55',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v56',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv56',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v57',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv57',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v58',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv58',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v59',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv59',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v60',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv60',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v61',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv61',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v62',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv62',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v63',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv63',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v64',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv64',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v65',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv65',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v66',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv66',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v67',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv67',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v68',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv68',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v69',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv69',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v70',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv70',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v71',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv71',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v72',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv72',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v73',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv73',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v74',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv74',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v75',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv75',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v76',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv76',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v77',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv77',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v78',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv78',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v79',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv79',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v80',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv80',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v81',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv81',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v82',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv82',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v83',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv83',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v84',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv84',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v85',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv85',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v86',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv86',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v87',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv87',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v88',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv88',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v89',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv89',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v90',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv90',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v91',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv91',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v92',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv92',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v93',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv93',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v94',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv94',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v95',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv95',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v96',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv96',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v97',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv97',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v98',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv98',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v99',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv99',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v100',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv100',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v101',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv101',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v102',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv102',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v103',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv103',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v104',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv104',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v105',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv105',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v106',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv106',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v107',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv107',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v108',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv108',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v109',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv109',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v110',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv110',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v111',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv111',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v112',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv112',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v113',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv113',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v114',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv114',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v115',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv115',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v116',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv116',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v117',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv117',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v118',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv118',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v119',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv119',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v120',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv120',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v121',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv121',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v122',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv122',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v123',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv123',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v124',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv124',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v125',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv125',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v126',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv126',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v127',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv127',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v128',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv128',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v129',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv129',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v130',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv130',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v131',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv131',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v132',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv132',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v133',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv133',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v134',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv134',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v135',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv135',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v136',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv136',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v137',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv137',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v138',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv138',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Pusher-v139',
+    #id='Pusher-v1',
+    entry_point='gym.envs.mujoco:PusherEnv139',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+
+
+register(
+    id='Thrower-v0',
+    entry_point='gym.envs.mujoco:ThrowerEnv',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v1',
+    entry_point='gym.envs.mujoco:ThrowerEnv1',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v2',
+    entry_point='gym.envs.mujoco:ThrowerEnv2',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v3',
+    entry_point='gym.envs.mujoco:ThrowerEnv3',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v4',
+    entry_point='gym.envs.mujoco:ThrowerEnv4',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v5',
+    entry_point='gym.envs.mujoco:ThrowerEnv5',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v6',
+    entry_point='gym.envs.mujoco:ThrowerEnv6',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v7',
+    entry_point='gym.envs.mujoco:ThrowerEnv7',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v8',
+    entry_point='gym.envs.mujoco:ThrowerEnv8',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v9',
+    entry_point='gym.envs.mujoco:ThrowerEnv9',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v10',
+    entry_point='gym.envs.mujoco:ThrowerEnv10',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v11',
+    entry_point='gym.envs.mujoco:ThrowerEnv11',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v12',
+    entry_point='gym.envs.mujoco:ThrowerEnv12',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v13',
+    entry_point='gym.envs.mujoco:ThrowerEnv13',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v14',
+    entry_point='gym.envs.mujoco:ThrowerEnv14',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v15',
+    entry_point='gym.envs.mujoco:ThrowerEnv15',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v16',
+    entry_point='gym.envs.mujoco:ThrowerEnv16',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v17',
+    entry_point='gym.envs.mujoco:ThrowerEnv17',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v18',
+    entry_point='gym.envs.mujoco:ThrowerEnv18',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v19',
+    entry_point='gym.envs.mujoco:ThrowerEnv19',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v20',
+    entry_point='gym.envs.mujoco:ThrowerEnv20',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v21',
+    entry_point='gym.envs.mujoco:ThrowerEnv21',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v22',
+    entry_point='gym.envs.mujoco:ThrowerEnv22',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v23',
+    entry_point='gym.envs.mujoco:ThrowerEnv23',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v24',
+    entry_point='gym.envs.mujoco:ThrowerEnv24',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v25',
+    entry_point='gym.envs.mujoco:ThrowerEnv25',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v26',
+    entry_point='gym.envs.mujoco:ThrowerEnv26',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v27',
+    entry_point='gym.envs.mujoco:ThrowerEnv27',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v28',
+    entry_point='gym.envs.mujoco:ThrowerEnv28',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v29',
+    entry_point='gym.envs.mujoco:ThrowerEnv29',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v30',
+    entry_point='gym.envs.mujoco:ThrowerEnv30',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v31',
+    entry_point='gym.envs.mujoco:ThrowerEnv31',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v32',
+    entry_point='gym.envs.mujoco:ThrowerEnv32',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v33',
+    entry_point='gym.envs.mujoco:ThrowerEnv33',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v34',
+    entry_point='gym.envs.mujoco:ThrowerEnv34',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v35',
+    entry_point='gym.envs.mujoco:ThrowerEnv35',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v36',
+    entry_point='gym.envs.mujoco:ThrowerEnv36',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v37',
+    entry_point='gym.envs.mujoco:ThrowerEnv37',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v38',
+    entry_point='gym.envs.mujoco:ThrowerEnv38',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v39',
+    entry_point='gym.envs.mujoco:ThrowerEnv39',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v40',
+    entry_point='gym.envs.mujoco:ThrowerEnv40',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v41',
+    entry_point='gym.envs.mujoco:ThrowerEnv41',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v42',
+    entry_point='gym.envs.mujoco:ThrowerEnv42',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v43',
+    entry_point='gym.envs.mujoco:ThrowerEnv43',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v44',
+    entry_point='gym.envs.mujoco:ThrowerEnv44',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v45',
+    entry_point='gym.envs.mujoco:ThrowerEnv45',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v46',
+    entry_point='gym.envs.mujoco:ThrowerEnv46',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v47',
+    entry_point='gym.envs.mujoco:ThrowerEnv47',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v48',
+    entry_point='gym.envs.mujoco:ThrowerEnv48',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v49',
+    entry_point='gym.envs.mujoco:ThrowerEnv49',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v50',
+    entry_point='gym.envs.mujoco:ThrowerEnv50',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v51',
+    entry_point='gym.envs.mujoco:ThrowerEnv51',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v52',
+    entry_point='gym.envs.mujoco:ThrowerEnv52',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v53',
+    entry_point='gym.envs.mujoco:ThrowerEnv53',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v54',
+    entry_point='gym.envs.mujoco:ThrowerEnv54',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v55',
+    entry_point='gym.envs.mujoco:ThrowerEnv55',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v56',
+    entry_point='gym.envs.mujoco:ThrowerEnv56',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v57',
+    entry_point='gym.envs.mujoco:ThrowerEnv57',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v58',
+    entry_point='gym.envs.mujoco:ThrowerEnv58',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v59',
+    entry_point='gym.envs.mujoco:ThrowerEnv59',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v60',
+    entry_point='gym.envs.mujoco:ThrowerEnv60',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v61',
+    entry_point='gym.envs.mujoco:ThrowerEnv61',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v62',
+    entry_point='gym.envs.mujoco:ThrowerEnv62',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v63',
+    entry_point='gym.envs.mujoco:ThrowerEnv63',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v64',
+    entry_point='gym.envs.mujoco:ThrowerEnv64',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v65',
+    entry_point='gym.envs.mujoco:ThrowerEnv65',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v66',
+    entry_point='gym.envs.mujoco:ThrowerEnv66',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v67',
+    entry_point='gym.envs.mujoco:ThrowerEnv67',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v68',
+    entry_point='gym.envs.mujoco:ThrowerEnv68',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v69',
+    entry_point='gym.envs.mujoco:ThrowerEnv69',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v70',
+    entry_point='gym.envs.mujoco:ThrowerEnv70',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v71',
+    entry_point='gym.envs.mujoco:ThrowerEnv71',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v72',
+    entry_point='gym.envs.mujoco:ThrowerEnv72',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v73',
+    entry_point='gym.envs.mujoco:ThrowerEnv73',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v74',
+    entry_point='gym.envs.mujoco:ThrowerEnv74',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v75',
+    entry_point='gym.envs.mujoco:ThrowerEnv75',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v76',
+    entry_point='gym.envs.mujoco:ThrowerEnv76',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v77',
+    entry_point='gym.envs.mujoco:ThrowerEnv77',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v78',
+    entry_point='gym.envs.mujoco:ThrowerEnv78',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v79',
+    entry_point='gym.envs.mujoco:ThrowerEnv79',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v80',
+    entry_point='gym.envs.mujoco:ThrowerEnv80',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v81',
+    entry_point='gym.envs.mujoco:ThrowerEnv81',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v82',
+    entry_point='gym.envs.mujoco:ThrowerEnv82',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v83',
+    entry_point='gym.envs.mujoco:ThrowerEnv83',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v84',
+    entry_point='gym.envs.mujoco:ThrowerEnv84',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v85',
+    entry_point='gym.envs.mujoco:ThrowerEnv85',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v86',
+    entry_point='gym.envs.mujoco:ThrowerEnv86',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v87',
+    entry_point='gym.envs.mujoco:ThrowerEnv87',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v88',
+    entry_point='gym.envs.mujoco:ThrowerEnv88',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v89',
+    entry_point='gym.envs.mujoco:ThrowerEnv89',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v90',
+    entry_point='gym.envs.mujoco:ThrowerEnv90',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v91',
+    entry_point='gym.envs.mujoco:ThrowerEnv91',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v92',
+    entry_point='gym.envs.mujoco:ThrowerEnv92',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v93',
+    entry_point='gym.envs.mujoco:ThrowerEnv93',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v94',
+    entry_point='gym.envs.mujoco:ThrowerEnv94',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v95',
+    entry_point='gym.envs.mujoco:ThrowerEnv95',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v96',
+    entry_point='gym.envs.mujoco:ThrowerEnv96',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v97',
+    entry_point='gym.envs.mujoco:ThrowerEnv97',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v98',
+    entry_point='gym.envs.mujoco:ThrowerEnv98',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v99',
+    entry_point='gym.envs.mujoco:ThrowerEnv99',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v100',
+    entry_point='gym.envs.mujoco:ThrowerEnv100',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v101',
+    entry_point='gym.envs.mujoco:ThrowerEnv101',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v102',
+    entry_point='gym.envs.mujoco:ThrowerEnv102',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v103',
+    entry_point='gym.envs.mujoco:ThrowerEnv103',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v104',
+    entry_point='gym.envs.mujoco:ThrowerEnv104',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v105',
+    entry_point='gym.envs.mujoco:ThrowerEnv105',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v106',
+    entry_point='gym.envs.mujoco:ThrowerEnv106',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v107',
+    entry_point='gym.envs.mujoco:ThrowerEnv107',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v108',
+    entry_point='gym.envs.mujoco:ThrowerEnv108',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v109',
+    entry_point='gym.envs.mujoco:ThrowerEnv109',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v110',
+    entry_point='gym.envs.mujoco:ThrowerEnv110',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v111',
+    entry_point='gym.envs.mujoco:ThrowerEnv111',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v112',
+    entry_point='gym.envs.mujoco:ThrowerEnv112',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v113',
+    entry_point='gym.envs.mujoco:ThrowerEnv113',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v114',
+    entry_point='gym.envs.mujoco:ThrowerEnv114',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v115',
+    entry_point='gym.envs.mujoco:ThrowerEnv115',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v116',
+    entry_point='gym.envs.mujoco:ThrowerEnv116',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v117',
+    entry_point='gym.envs.mujoco:ThrowerEnv117',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v118',
+    entry_point='gym.envs.mujoco:ThrowerEnv118',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v119',
+    entry_point='gym.envs.mujoco:ThrowerEnv119',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v120',
+    entry_point='gym.envs.mujoco:ThrowerEnv120',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v121',
+    entry_point='gym.envs.mujoco:ThrowerEnv121',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v122',
+    entry_point='gym.envs.mujoco:ThrowerEnv122',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v123',
+    entry_point='gym.envs.mujoco:ThrowerEnv123',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v124',
+    entry_point='gym.envs.mujoco:ThrowerEnv124',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v125',
+    entry_point='gym.envs.mujoco:ThrowerEnv125',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v126',
+    entry_point='gym.envs.mujoco:ThrowerEnv126',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v127',
+    entry_point='gym.envs.mujoco:ThrowerEnv127',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v128',
+    entry_point='gym.envs.mujoco:ThrowerEnv128',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v129',
+    entry_point='gym.envs.mujoco:ThrowerEnv129',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v130',
+    entry_point='gym.envs.mujoco:ThrowerEnv130',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v131',
+    entry_point='gym.envs.mujoco:ThrowerEnv131',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v132',
+    entry_point='gym.envs.mujoco:ThrowerEnv132',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v133',
+    entry_point='gym.envs.mujoco:ThrowerEnv133',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v134',
+    entry_point='gym.envs.mujoco:ThrowerEnv134',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v135',
+    entry_point='gym.envs.mujoco:ThrowerEnv135',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v136',
+    entry_point='gym.envs.mujoco:ThrowerEnv136',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v137',
+    entry_point='gym.envs.mujoco:ThrowerEnv137',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v138',
+    entry_point='gym.envs.mujoco:ThrowerEnv138',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Thrower-v139',
+    entry_point='gym.envs.mujoco:ThrowerEnv139',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+
+
+register(
+    id='Striker-v0',
+    entry_point='gym.envs.mujoco:StrikerEnv',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v1',
+    entry_point='gym.envs.mujoco:StrikerEnv1',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v2',
+    entry_point='gym.envs.mujoco:StrikerEnv2',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v3',
+    entry_point='gym.envs.mujoco:StrikerEnv3',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v4',
+    entry_point='gym.envs.mujoco:StrikerEnv4',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v5',
+    entry_point='gym.envs.mujoco:StrikerEnv5',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v6',
+    entry_point='gym.envs.mujoco:StrikerEnv6',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v7',
+    entry_point='gym.envs.mujoco:StrikerEnv7',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v8',
+    entry_point='gym.envs.mujoco:StrikerEnv8',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v9',
+    entry_point='gym.envs.mujoco:StrikerEnv9',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v10',
+    entry_point='gym.envs.mujoco:StrikerEnv10',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v11',
+    entry_point='gym.envs.mujoco:StrikerEnv11',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v12',
+    entry_point='gym.envs.mujoco:StrikerEnv12',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v13',
+    entry_point='gym.envs.mujoco:StrikerEnv13',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v14',
+    entry_point='gym.envs.mujoco:StrikerEnv14',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v15',
+    entry_point='gym.envs.mujoco:StrikerEnv15',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v16',
+    entry_point='gym.envs.mujoco:StrikerEnv16',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+
+register(
+    id='Striker-v17',
+    entry_point='gym.envs.mujoco:StrikerEnv17',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v18',
+    entry_point='gym.envs.mujoco:StrikerEnv18',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v19',
+    entry_point='gym.envs.mujoco:StrikerEnv19',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v20',
+    entry_point='gym.envs.mujoco:StrikerEnv20',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v21',
+    entry_point='gym.envs.mujoco:StrikerEnv21',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v22',
+    entry_point='gym.envs.mujoco:StrikerEnv22',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v23',
+    entry_point='gym.envs.mujoco:StrikerEnv23',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v24',
+    entry_point='gym.envs.mujoco:StrikerEnv24',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v25',
+    entry_point='gym.envs.mujoco:StrikerEnv25',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v26',
+    entry_point='gym.envs.mujoco:StrikerEnv26',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v27',
+    entry_point='gym.envs.mujoco:StrikerEnv27',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v28',
+    entry_point='gym.envs.mujoco:StrikerEnv28',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v29',
+    entry_point='gym.envs.mujoco:StrikerEnv29',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v30',
+    entry_point='gym.envs.mujoco:StrikerEnv30',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v31',
+    entry_point='gym.envs.mujoco:StrikerEnv31',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v32',
+    entry_point='gym.envs.mujoco:StrikerEnv32',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v33',
+    entry_point='gym.envs.mujoco:StrikerEnv33',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v34',
+    entry_point='gym.envs.mujoco:StrikerEnv34',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v35',
+    entry_point='gym.envs.mujoco:StrikerEnv35',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v36',
+    entry_point='gym.envs.mujoco:StrikerEnv36',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v37',
+    entry_point='gym.envs.mujoco:StrikerEnv37',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v38',
+    entry_point='gym.envs.mujoco:StrikerEnv38',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v39',
+    entry_point='gym.envs.mujoco:StrikerEnv39',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v40',
+    entry_point='gym.envs.mujoco:StrikerEnv40',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v41',
+    entry_point='gym.envs.mujoco:StrikerEnv41',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v42',
+    entry_point='gym.envs.mujoco:StrikerEnv42',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v43',
+    entry_point='gym.envs.mujoco:StrikerEnv43',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v44',
+    entry_point='gym.envs.mujoco:StrikerEnv44',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v45',
+    entry_point='gym.envs.mujoco:StrikerEnv45',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v46',
+    entry_point='gym.envs.mujoco:StrikerEnv46',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v47',
+    entry_point='gym.envs.mujoco:StrikerEnv47',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v48',
+    entry_point='gym.envs.mujoco:StrikerEnv48',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v49',
+    entry_point='gym.envs.mujoco:StrikerEnv49',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v50',
+    entry_point='gym.envs.mujoco:StrikerEnv50',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v51',
+    entry_point='gym.envs.mujoco:StrikerEnv51',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v52',
+    entry_point='gym.envs.mujoco:StrikerEnv52',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v53',
+    entry_point='gym.envs.mujoco:StrikerEnv53',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v54',
+    entry_point='gym.envs.mujoco:StrikerEnv54',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v55',
+    entry_point='gym.envs.mujoco:StrikerEnv55',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v56',
+    entry_point='gym.envs.mujoco:StrikerEnv56',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v57',
+    entry_point='gym.envs.mujoco:StrikerEnv57',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v58',
+    entry_point='gym.envs.mujoco:StrikerEnv58',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v59',
+    entry_point='gym.envs.mujoco:StrikerEnv59',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v60',
+    entry_point='gym.envs.mujoco:StrikerEnv60',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v61',
+    entry_point='gym.envs.mujoco:StrikerEnv61',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v62',
+    entry_point='gym.envs.mujoco:StrikerEnv62',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v63',
+    entry_point='gym.envs.mujoco:StrikerEnv63',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v64',
+    entry_point='gym.envs.mujoco:StrikerEnv64',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v65',
+    entry_point='gym.envs.mujoco:StrikerEnv65',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v66',
+    entry_point='gym.envs.mujoco:StrikerEnv66',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v67',
+    entry_point='gym.envs.mujoco:StrikerEnv67',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v68',
+    entry_point='gym.envs.mujoco:StrikerEnv68',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v69',
+    entry_point='gym.envs.mujoco:StrikerEnv69',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v70',
+    entry_point='gym.envs.mujoco:StrikerEnv70',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v71',
+    entry_point='gym.envs.mujoco:StrikerEnv71',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v72',
+    entry_point='gym.envs.mujoco:StrikerEnv72',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v73',
+    entry_point='gym.envs.mujoco:StrikerEnv73',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v74',
+    entry_point='gym.envs.mujoco:StrikerEnv74',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v75',
+    entry_point='gym.envs.mujoco:StrikerEnv75',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v76',
+    entry_point='gym.envs.mujoco:StrikerEnv76',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v77',
+    entry_point='gym.envs.mujoco:StrikerEnv77',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v78',
+    entry_point='gym.envs.mujoco:StrikerEnv78',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v79',
+    entry_point='gym.envs.mujoco:StrikerEnv79',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v80',
+    entry_point='gym.envs.mujoco:StrikerEnv80',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v81',
+    entry_point='gym.envs.mujoco:StrikerEnv81',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v82',
+    entry_point='gym.envs.mujoco:StrikerEnv82',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v83',
+    entry_point='gym.envs.mujoco:StrikerEnv83',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v84',
+    entry_point='gym.envs.mujoco:StrikerEnv84',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v85',
+    entry_point='gym.envs.mujoco:StrikerEnv85',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v86',
+    entry_point='gym.envs.mujoco:StrikerEnv86',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v87',
+    entry_point='gym.envs.mujoco:StrikerEnv87',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v88',
+    entry_point='gym.envs.mujoco:StrikerEnv88',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v89',
+    entry_point='gym.envs.mujoco:StrikerEnv89',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v90',
+    entry_point='gym.envs.mujoco:StrikerEnv90',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v91',
+    entry_point='gym.envs.mujoco:StrikerEnv91',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v92',
+    entry_point='gym.envs.mujoco:StrikerEnv92',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v93',
+    entry_point='gym.envs.mujoco:StrikerEnv93',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v94',
+    entry_point='gym.envs.mujoco:StrikerEnv94',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v95',
+    entry_point='gym.envs.mujoco:StrikerEnv95',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v96',
+    entry_point='gym.envs.mujoco:StrikerEnv96',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v97',
+    entry_point='gym.envs.mujoco:StrikerEnv97',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v98',
+    entry_point='gym.envs.mujoco:StrikerEnv98',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v99',
+    entry_point='gym.envs.mujoco:StrikerEnv99',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v100',
+    entry_point='gym.envs.mujoco:StrikerEnv100',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v101',
+    entry_point='gym.envs.mujoco:StrikerEnv101',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v102',
+    entry_point='gym.envs.mujoco:StrikerEnv102',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v103',
+    entry_point='gym.envs.mujoco:StrikerEnv103',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v104',
+    entry_point='gym.envs.mujoco:StrikerEnv104',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v105',
+    entry_point='gym.envs.mujoco:StrikerEnv105',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v106',
+    entry_point='gym.envs.mujoco:StrikerEnv106',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v107',
+    entry_point='gym.envs.mujoco:StrikerEnv107',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v108',
+    entry_point='gym.envs.mujoco:StrikerEnv108',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v109',
+    entry_point='gym.envs.mujoco:StrikerEnv109',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v110',
+    entry_point='gym.envs.mujoco:StrikerEnv110',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v111',
+    entry_point='gym.envs.mujoco:StrikerEnv111',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v112',
+    entry_point='gym.envs.mujoco:StrikerEnv112',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v113',
+    entry_point='gym.envs.mujoco:StrikerEnv113',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v114',
+    entry_point='gym.envs.mujoco:StrikerEnv114',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v115',
+    entry_point='gym.envs.mujoco:StrikerEnv115',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v116',
+    entry_point='gym.envs.mujoco:StrikerEnv116',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v117',
+    entry_point='gym.envs.mujoco:StrikerEnv117',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v118',
+    entry_point='gym.envs.mujoco:StrikerEnv118',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v119',
+    entry_point='gym.envs.mujoco:StrikerEnv119',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v120',
+    entry_point='gym.envs.mujoco:StrikerEnv120',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v121',
+    entry_point='gym.envs.mujoco:StrikerEnv121',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v122',
+    entry_point='gym.envs.mujoco:StrikerEnv122',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v123',
+    entry_point='gym.envs.mujoco:StrikerEnv123',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v124',
+    entry_point='gym.envs.mujoco:StrikerEnv124',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v125',
+    entry_point='gym.envs.mujoco:StrikerEnv125',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v126',
+    entry_point='gym.envs.mujoco:StrikerEnv126',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v127',
+    entry_point='gym.envs.mujoco:StrikerEnv127',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v128',
+    entry_point='gym.envs.mujoco:StrikerEnv128',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v129',
+    entry_point='gym.envs.mujoco:StrikerEnv129',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v130',
+    entry_point='gym.envs.mujoco:StrikerEnv130',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v131',
+    entry_point='gym.envs.mujoco:StrikerEnv131',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v132',
+    entry_point='gym.envs.mujoco:StrikerEnv132',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v133',
+    entry_point='gym.envs.mujoco:StrikerEnv133',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v134',
+    entry_point='gym.envs.mujoco:StrikerEnv134',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v135',
+    entry_point='gym.envs.mujoco:StrikerEnv135',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v136',
+    entry_point='gym.envs.mujoco:StrikerEnv136',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v137',
+    entry_point='gym.envs.mujoco:StrikerEnv137',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v138',
+    entry_point='gym.envs.mujoco:StrikerEnv138',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+register(
+    id='Striker-v139',
+    entry_point='gym.envs.mujoco:StrikerEnv139',
+    max_episode_steps=100,
+    reward_threshold=0.0,
+)
+
+
+register(
+    id='InvertedPendulum-v1',
+    entry_point='gym.envs.mujoco:InvertedPendulumEnv',
+    max_episode_steps=1000,
+    reward_threshold=950.0,
+)
+
+register(
+    id='InvertedDoublePendulum-v1',
+    entry_point='gym.envs.mujoco:InvertedDoublePendulumEnv',
+    max_episode_steps=1000,
+    reward_threshold=9100.0,
+)
+
+register(
+    id='HalfCheetah-v1',
+    entry_point='gym.envs.mujoco:HalfCheetahEnv',
+    max_episode_steps=1000,
+    reward_threshold=4800.0,
+)
+
+register(
+    id='Hopper-v1',
+    entry_point='gym.envs.mujoco:HopperEnv',
+    max_episode_steps=1000,
+    reward_threshold=3800.0,
+)
+
+register(
+    id='Swimmer-v1',
+    entry_point='gym.envs.mujoco:SwimmerEnv',
+    max_episode_steps=1000,
+    reward_threshold=360.0,
+)
+
+register(
+    id='Walker2d-v1',
+    max_episode_steps=1000,
+    entry_point='gym.envs.mujoco:Walker2dEnv',
+)
+
+register(
+    id='Ant-v1',
+    entry_point='gym.envs.mujoco:AntEnv',
+    max_episode_steps=1000,
+    reward_threshold=6000.0,
+)
+
+register(
+    id='Humanoid-v1',
+    entry_point='gym.envs.mujoco:HumanoidEnv',
+    max_episode_steps=1000,
+)
+
+register(
+    id='HumanoidStandup-v1',
+    entry_point='gym.envs.mujoco:HumanoidStandupEnv',
+    max_episode_steps=1000,
+)
+
+# Atari
+# ----------------------------------------
+
+# # print ', '.join(["'{}'".format(name.split('.')[0]) for name in atari_py.list_games()])
+for game in ['air_raid', 'alien', 'amidar', 'assault', 'asterix', 'asteroids', 'atlantis',
+    'bank_heist', 'battle_zone', 'beam_rider', 'berzerk', 'bowling', 'boxing', 'breakout', 'carnival',
+    'centipede', 'chopper_command', 'crazy_climber', 'demon_attack', 'double_dunk',
+    'elevator_action', 'enduro', 'fishing_derby', 'freeway', 'frostbite', 'gopher', 'gravitar',
+    'hero', 'ice_hockey', 'jamesbond', 'journey_escape', 'kangaroo', 'krull', 'kung_fu_master',
+    'montezuma_revenge', 'ms_pacman', 'name_this_game', 'phoenix', 'pitfall', 'pong', 'pooyan',
+    'private_eye', 'qbert', 'riverraid', 'road_runner', 'robotank', 'seaquest', 'skiing',
+    'solaris', 'space_invaders', 'star_gunner', 'tennis', 'time_pilot', 'tutankham', 'up_n_down',
+    'venture', 'video_pinball', 'wizard_of_wor', 'yars_revenge', 'zaxxon']:
+    for obs_type in ['image', 'ram']:
+        # space_invaders should yield SpaceInvaders-v0 and SpaceInvaders-ram-v0
+        name = ''.join([g.capitalize() for g in game.split('_')])
+        if obs_type == 'ram':
+            name = '{}-ram'.format(name)
+
+        nondeterministic = False
+        if game == 'elevator_action' and obs_type == 'ram':
+            # ElevatorAction-ram-v0 seems to yield slightly
+            # non-deterministic observations about 10% of the time. We
+            # should track this down eventually, but for now we just
+            # mark it as nondeterministic.
+            nondeterministic = True
+
+        register(
+            id='{}-v0'.format(name),
+            entry_point='gym.envs.atari:AtariEnv',
+            kwargs={'game': game, 'obs_type': obs_type, 'repeat_action_probability': 0.25},
+            max_episode_steps=10000,
+            nondeterministic=nondeterministic,
+        )
+
+        register(
+            id='{}-v4'.format(name),
+            entry_point='gym.envs.atari:AtariEnv',
+            kwargs={'game': game, 'obs_type': obs_type},
+            max_episode_steps=100000,
+            nondeterministic=nondeterministic,
+        )
+
+        # Standard Deterministic (as in the original DeepMind paper)
+        if game == 'space_invaders':
+            frameskip = 3
+        else:
+            frameskip = 4
+
+        # Use a deterministic frame skip.
+        register(
+            id='{}Deterministic-v0'.format(name),
+            entry_point='gym.envs.atari:AtariEnv',
+            kwargs={'game': game, 'obs_type': obs_type, 'frameskip': frameskip, 'repeat_action_probability': 0.25},
+            max_episode_steps=100000,
+            nondeterministic=nondeterministic,
+        )
+
+        register(
+            id='{}Deterministic-v4'.format(name),
+            entry_point='gym.envs.atari:AtariEnv',
+            kwargs={'game': game, 'obs_type': obs_type, 'frameskip': frameskip},
+            max_episode_steps=100000,
+            nondeterministic=nondeterministic,
+        )
+
+        register(
+            id='{}NoFrameskip-v0'.format(name),
+            entry_point='gym.envs.atari:AtariEnv',
+            kwargs={'game': game, 'obs_type': obs_type, 'frameskip': 1, 'repeat_action_probability': 0.25}, # A frameskip of 1 means we get every frame
+            max_episode_steps=frameskip * 100000,
+            nondeterministic=nondeterministic,
+        )
+
+        # No frameskip. (Atari has no entropy source, so these are
+        # deterministic environments.)
+        register(
+            id='{}NoFrameskip-v4'.format(name),
+            entry_point='gym.envs.atari:AtariEnv',
+            kwargs={'game': game, 'obs_type': obs_type, 'frameskip': 1}, # A frameskip of 1 means we get every frame
+            max_episode_steps=frameskip * 100000,
+            nondeterministic=nondeterministic,
+        )
+
+# Board games
+# ----------------------------------------
+
+register(
+    id='Go9x9-v0',
+    entry_point='gym.envs.board_game:GoEnv',
+    kwargs={
+        'player_color': 'black',
+        'opponent': 'pachi:uct:_2400',
+        'observation_type': 'image3c',
+        'illegal_move_mode': 'lose',
+        'board_size': 9,
+    },
+    # The pachi player seems not to be determistic given a fixed seed.
+    # (Reproduce by running 'import gym; h = gym.make('Go9x9-v0'); h.seed(1); h.reset(); h.step(15); h.step(16); h.step(17)' a few times.)
+    #
+    # This is probably due to a computation time limit.
+    nondeterministic=True,
+)
+
+register(
+    id='Go19x19-v0',
+    entry_point='gym.envs.board_game:GoEnv',
+    kwargs={
+        'player_color': 'black',
+        'opponent': 'pachi:uct:_2400',
+        'observation_type': 'image3c',
+        'illegal_move_mode': 'lose',
+        'board_size': 19,
+    },
+    nondeterministic=True,
+)
+
+register(
+    id='Hex9x9-v0',
+    entry_point='gym.envs.board_game:HexEnv',
+    kwargs={
+        'player_color': 'black',
+        'opponent': 'random',
+        'observation_type': 'numpy3c',
+        'illegal_move_mode': 'lose',
+        'board_size': 9,
+    },
+)
+
+# Debugging
+# ----------------------------------------
+
+register(
+    id='OneRoundDeterministicReward-v0',
+    entry_point='gym.envs.debugging:OneRoundDeterministicRewardEnv',
+    local_only=True
+)
+
+register(
+    id='TwoRoundDeterministicReward-v0',
+    entry_point='gym.envs.debugging:TwoRoundDeterministicRewardEnv',
+    local_only=True
+)
+
+register(
+    id='OneRoundNondeterministicReward-v0',
+    entry_point='gym.envs.debugging:OneRoundNondeterministicRewardEnv',
+    local_only=True
+)
+
+register(
+    id='TwoRoundNondeterministicReward-v0',
+    entry_point='gym.envs.debugging:TwoRoundNondeterministicRewardEnv',
+    local_only=True,
+)
+
+# Parameter tuning
+# ----------------------------------------
+register(
+    id='ConvergenceControl-v0',
+    entry_point='gym.envs.parameter_tuning:ConvergenceControl',
+)
+
+register(
+    id='CNNClassifierTraining-v0',
+    entry_point='gym.envs.parameter_tuning:CNNClassifierTraining',
+)
+
+# Safety
+# ----------------------------------------
+
+# interpretability envs
+register(
+    id='PredictActionsCartpole-v0',
+    entry_point='gym.envs.safety:PredictActionsCartpoleEnv',
+    max_episode_steps=200,
+)
+
+register(
+    id='PredictObsCartpole-v0',
+    entry_point='gym.envs.safety:PredictObsCartpoleEnv',
+    max_episode_steps=200,
+)
+
+# semi_supervised envs
+    # probably the easiest:
+register(
+    id='SemisuperPendulumNoise-v0',
+    entry_point='gym.envs.safety:SemisuperPendulumNoiseEnv',
+    max_episode_steps=200,
+)
+    # somewhat harder because of higher variance:
+register(
+    id='SemisuperPendulumRandom-v0',
+    entry_point='gym.envs.safety:SemisuperPendulumRandomEnv',
+    max_episode_steps=200,
+)
+    # probably the hardest because you only get a constant number of rewards in total:
+register(
+    id='SemisuperPendulumDecay-v0',
+    entry_point='gym.envs.safety:SemisuperPendulumDecayEnv',
+    max_episode_steps=200,
+)
+
+# off_switch envs
+register(
+    id='OffSwitchCartpole-v0',
+    entry_point='gym.envs.safety:OffSwitchCartpoleEnv',
+    max_episode_steps=200,
+)
+
+register(
+    id='OffSwitchCartpoleProb-v0',
+    entry_point='gym.envs.safety:OffSwitchCartpoleProbEnv',
+    max_episode_steps=200,
+)

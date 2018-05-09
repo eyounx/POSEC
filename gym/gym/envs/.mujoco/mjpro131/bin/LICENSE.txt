@@ -1,0 +1,32 @@
+Roboti LLC grants you a trial license to use the MuJoCo Pro software
+(hereafter "Software") subject to the following terms and conditions:
+
+  1. You will not modify, disassemble or reverse-engineer the binary files
+     provided with the Software.
+  
+  2. You will not redistribute or share the Software or activation key
+     with anyone.
+  
+  3. You will not use the Software to provide any online services.
+  
+  4. You will not use the Software after the expiration date shown in the
+     activation key.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. ROBOTI LLC 
+SPECIFICALLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+LIMITED TO ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A 
+PARTICULAR PURPOSE. ROBOTI LLC SHALL NOT BE LIABLE FOR SPECIAL, INCIDENTAL, 
+CONSEQUENTIAL, OR OTHER DAMAGES ARISING FROM ANY BREACH OF WARRANTY, BREACH 
+OF CONTRACT, NEGLIGENCE, OR ANY OTHER LEGAL THEORIES, EVEN IF ROBOTI LLC 
+HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+The Software is designed and tested for use in simulations only. It may
+occasionally become unstable or otherwise behave unexpectedly. Therefore
+the Software does not meet the safety requirements for operating machinery,
+controlling devices that are capable of causing physical harm, or use in
+any other real-life situations. If the Software is incorporated in a system
+used in real-life situations, it is the user's responsibility to implement
+appropriate safety mechanisms, and ensure that a failure of the Software
+cannot cause physical harm or any other damage. ROBOTI LLC SPECIFICALLY
+DISCLAIMS ALL LIABILITY FOR DAMAGES RESULTING FROM USING THE SOFTWARE
+IN REAL-LIFE SITUATIONS.
